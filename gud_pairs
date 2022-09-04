@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int numIdenticalPairs(vector<int>& nums) 
+    {
+        int count =0;
+        unordered_map<int, int> m1;
+        for(int i=0; i<nums.size(); i++)
+        {
+            if(m1.find(nums[i]) != m1.end())
+            {
+                count = count + m1[nums[i]];
+                m1[nums[i]]++;
+            }
+            else
+            {
+                m1[nums[i]]++;
+            }
+        }
+        return count;
+    }
+};
+class Solution {
+public:
+    int numIdenticalPairs(vector<int>& nums) {
+     int count=0;
+        for(int i=0;i<nums.size()-1;i++)
+        {
+            for(int j=i+1;j<nums.size();j++)
+            {
+                if(nums[i]==nums[j])
+                    count++;
+            }
+        }
+        return count;
+    }
+};
