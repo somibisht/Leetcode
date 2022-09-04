@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int finalValueAfterOperations(vector<string>& operations) {
+        int x=0;
+        for(string s:operations)
+        {
+            if(s.compare("++X")==0||s.compare("X++")==0)
+                x++;
+            if(s.compare("--X")==0 || s.compare("X--")==0)
+                x--;
+        }
+        return x;
+    }
+};//fast
+
+class Solution {
+public:
+    int finalValueAfterOperations(vector<string>& operations) {
+        int x=0;
+        for(int i=0;i<operations.size();i++)
+        {
+            if(operations[i][0]=='+' || operations[i][1]=='+')
+                x++;
+            else
+                x--;
+        }
+        return x;
+    }
+};//slow
